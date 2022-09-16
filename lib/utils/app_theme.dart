@@ -8,6 +8,7 @@ final lightThemeData = ThemeData(
   // ),
   colorScheme: ColorScheme.fromSwatch(primarySwatch: customPrimaryColor),
   errorColor: Colors.red[800],
+  iconTheme: IconThemeData(color: Colors.grey.shade800),
   visualDensity: VisualDensity.adaptivePlatformDensity,
   fontFamily: fontName,
 );

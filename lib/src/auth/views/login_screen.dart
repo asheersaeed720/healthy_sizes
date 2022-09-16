@@ -1,115 +1,133 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:healthy_sizes/src/auth/auth_controller.dart';
+import 'package:healthy_sizes/src/auth/views/forgot_password_screen.dart';
+import 'package:healthy_sizes/src/auth/views/signup_screen.dart';
+import 'package:healthy_sizes/utils/constants.dart';
 import 'package:healthy_sizes/widgets/custom_async_btn.dart';
 import 'package:healthy_sizes/widgets/custom_input_field.dart';
+import 'package:healthy_sizes/widgets/screen_bg_widget.dart';
 
 class LogInScreen extends StatelessWidget {
   static const String routeName = '/login';
 
-  LogInScreen({Key? key}) : super(key: key);
+  LogInScreen({super.key});
 
-  final _authController = Get.find<AuthController>();
+  final AuthController _authCtrl = Get.find();
 
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Stack(
           clipBehavior: Clip.none,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 18.0),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    const SizedBox(height: 18.0),
-                    Center(
-                      child: Image.asset('assets/icons/logo.png'),
+            const ScreenBgWidget(),
+            Positioned(
+              top: 170.0,
+              left: 20.0,
+              right: 20.0,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(kBorderRadius),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: const Offset(0, 3),
                     ),
-                    // Text(
-                    //   'Sign up to find work you love',
-                    //   style: kTitleStyle.copyWith(fontSize: 24.0),
-                    //   textAlign: TextAlign.center,
-                    // ),
-                    // const SizedBox(height: 28.0),
-                    const SizedBox(height: 20.0),
-                    CustomInputField(
-                      hintText: 'Email',
-                      controller: _emailController,
-                      prefixIcon: const Icon(Icons.email),
-                      keyboardType: TextInputType.emailAddress,
-                    ),
-                    const SizedBox(height: 16.0),
-                    GetBuilder<AuthController>(
-                      builder: (_) => CustomInputField(
-                        hintText: 'Password',
-                        controller: _passwordController,
-                        prefixIcon: const Icon(Icons.lock),
-                        keyboardType: TextInputType.visiblePassword,
-                        obscureText: _authController.isObscure,
-                        suffixIcon: InkWell(
-                          onTap: () {
-                            _authController.toggleObscure();
-                          },
-                          child: _authController.isObscure
-                              ? const Icon(Icons.visibility)
-                              : const Icon(Icons.visibility_off),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 12.0),
-                    // Container(
-                    //   margin: const EdgeInsets.only(right: 18.0),
-                    //   child: InkWell(
-                    //     onTap: () {
-                    //       Get.toNamed(ForgotPasswordScreen.routeName);
-                    //     },
-                    //     child: Text(
-                    //       'Forgot Password?',
-                    //       style: kBodyStyle.copyWith(
-                    //         color: kPrimaryColor,
-                    //         decoration: TextDecoration.underline,
-                    //       ),
-                    //       textAlign: TextAlign.right,
-                    //     ),
-                    //   ),
-                    // ),
-
-                    const SizedBox(height: 20.0),
-                    CustomAsyncBtn(
-                      btnTxt: 'Log In',
-                      onPress: () async {
-                        if (_formKey.currentState!.validate()) {
-                          _formKey.currentState!.save();
-                          FocusScopeNode currentFocus = FocusScope.of(context);
-                          if (!currentFocus.hasPrimaryFocus) {
-                            currentFocus.unfocus();
-                          }
-                        }
-                      },
-                    ),
-                    const SizedBox(height: 18.0),
                   ],
                 ),
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Center(
+                        child: Text(
+                          "Log In",
+                          style: kBodyStyle.copyWith(fontSize: 18.0),
+                        ),
+                      ),
+                      const SizedBox(height: 6.0),
+                      const Center(
+                        child: Text(
+                          "Login to your Account",
+                        ),
+                      ),
+                      const SizedBox(height: 18.0),
+                      CustomInputField(
+                        hintText: 'Email',
+                        controller: _emailController,
+                        prefixIcon: const Icon(Icons.email),
+                        keyboardType: TextInputType.emailAddress,
+                      ),
+                      const SizedBox(height: 18.0),
+                      GetBuilder<AuthController>(
+                        builder: (_) => CustomInputField(
+                          hintText: 'Password',
+                          controller: _passwordController,
+                          prefixIcon: const Icon(Icons.lock),
+                          keyboardType: TextInputType.visiblePassword,
+                          obscureText: _authCtrl.isObscure,
+                          suffixIcon: InkWell(
+                            onTap: () {
+                              _authCtrl.toggleObscure();
+                            },
+                            child: _authCtrl.isObscure
+                                ? const Icon(Icons.visibility)
+                                : const Icon(Icons.visibility_off),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 12.0),
+                      InkWell(
+                        onTap: () {
+                          Get.toNamed(ForgotPasswordScreen.routeName);
+                        },
+                        child: Text(
+                          'Forgot Password?',
+                          style: kBodyStyle.copyWith(color: Colors.deepOrange.shade500),
+                          textAlign: TextAlign.end,
+                        ),
+                      ),
+                      const SizedBox(height: 18.0),
+                      CustomAsyncBtn(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        btnTxt: 'Log In',
+                        onPress: () {},
+                      ),
+                      const SizedBox(height: 18.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Not have an Account?',
+                            style: kBodyStyle,
+                          ),
+                          const SizedBox(width: 6.0),
+                          InkWell(
+                            onTap: () {
+                              Get.toNamed(SignUpScreen.routeName);
+                            },
+                            child: Text(
+                              'Sign Up',
+                              style: kBodyStyle.copyWith(color: Colors.deepOrange.shade500),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
               ),
-            ),
-            Positioned(
-              top: 20.0,
-              left: 14.0,
-              child: InkWell(
-                onTap: () => Get.back(),
-                child: const Icon(Icons.arrow_back),
-              ),
-            ),
+            )
           ],
         ),
       ),

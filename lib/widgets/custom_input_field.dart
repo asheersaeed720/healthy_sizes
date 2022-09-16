@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:healthy_sizes/utils/constants.dart';
 import 'package:healthy_sizes/utils/input_validation.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
@@ -32,14 +31,15 @@ class CustomInputField extends StatelessWidget with InputValidationMixin {
             initialCountryCode: 'PK',
             decoration: InputDecoration(
               hintText: hintText,
-              contentPadding: const EdgeInsets.only(left: 12.0, top: 10.0),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(kBorderRadius),
-              ),
-              focusedErrorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(kBorderRadius),
-                borderSide: const BorderSide(width: 1.0, color: Colors.red),
-              ),
+              hintStyle: const TextStyle(fontSize: 14.0),
+              contentPadding: const EdgeInsets.only(left: 12.0, top: 12.0),
+              // border: OutlineInputBorder(
+              //   borderRadius: BorderRadius.circular(kBorderRadius),
+              // ),
+              // focusedErrorBorder: OutlineInputBorder(
+              //   borderRadius: BorderRadius.circular(kBorderRadius),
+              //   borderSide: const BorderSide(width: 1.0, color: Colors.red),
+              // ),
             ),
             onChanged: (phone) {
               log(phone.completeNumber);
@@ -60,14 +60,15 @@ class CustomInputField extends StatelessWidget with InputValidationMixin {
             },
             decoration: InputDecoration(
               hintText: hintText,
-              contentPadding: const EdgeInsets.only(left: 12.0, top: 10.0),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(kBorderRadius),
-              ),
-              focusedErrorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(kBorderRadius),
-                borderSide: const BorderSide(width: 1.0, color: Colors.red),
-              ),
+              hintStyle: const TextStyle(fontSize: 14.0),
+              contentPadding: const EdgeInsets.only(left: 12.0, top: 12.0),
+              // border: OutlineInputBorder(
+              //   borderRadius: BorderRadius.circular(kBorderRadius),
+              // ),
+              // focusedErrorBorder: OutlineInputBorder(
+              //   borderRadius: BorderRadius.circular(kBorderRadius),
+              //   borderSide: const BorderSide(width: 1.0, color: Colors.red),
+              // ),
               prefixIcon: prefixIcon ?? const SizedBox.shrink(),
               suffixIcon: suffixIcon ?? const SizedBox.shrink(),
             ),

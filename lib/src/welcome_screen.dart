@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
+import 'package:healthy_sizes/src/auth/views/login_screen.dart';
 import 'package:healthy_sizes/utils/constants.dart';
 import 'package:healthy_sizes/widgets/custom_async_btn.dart';
 import 'package:healthy_sizes/widgets/screen_bg_widget.dart';
+
+import 'auth/views/signup_screen.dart';
 
 class WelcomeAuthScreen extends StatelessWidget {
   static const String routeName = '/welcome-auth';
@@ -21,7 +25,7 @@ class WelcomeAuthScreen extends StatelessWidget {
             left: 20.0,
             right: 20.0,
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 60.0),
+              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 42.0),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(kBorderRadius),
@@ -30,7 +34,7 @@ class WelcomeAuthScreen extends StatelessWidget {
                     color: Colors.grey.withOpacity(0.5),
                     spreadRadius: 5,
                     blurRadius: 7,
-                    offset: Offset(0, 3), // changes position of shadow
+                    offset: const Offset(0, 3),
                   ),
                 ],
               ),
@@ -44,14 +48,18 @@ class WelcomeAuthScreen extends StatelessWidget {
                   CustomAsyncBtn(
                     width: MediaQuery.of(context).size.width * 0.8,
                     btnTxt: 'Log In',
-                    onPress: () {},
+                    onPress: () {
+                      Get.toNamed(LogInScreen.routeName);
+                    },
                   ),
                   const SizedBox(height: 20.0),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.8,
                     height: 44.0,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed(SignUpScreen.routeName);
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.white,
                         elevation: 0,
@@ -115,16 +123,6 @@ class WelcomeAuthScreen extends StatelessWidget {
             height: 1.0,
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildSocialMediaBtnView(String img, Function()? onTap) {
-    return InkWell(
-      onTap: onTap,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(50.0),
-        child: Image.asset('name'),
       ),
     );
   }
