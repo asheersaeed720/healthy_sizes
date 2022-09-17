@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:healthy_sizes/src/init_screen.dart';
 import 'package:healthy_sizes/src/initial_binding.dart';
+import 'package:healthy_sizes/src/main/main_screen.dart';
 import 'package:healthy_sizes/utils/app_theme.dart';
 import 'package:healthy_sizes/utils/routes.dart';
 
@@ -33,8 +33,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: lightThemeData,
         initialBinding: InitialBinding(),
-        initialRoute: InitialScreen.routeName,
-        // home: WelcomeAuthScreen(),
+        // initialRoute: InitialScreen.routeName,
+        home: const MainScreen(),
         getPages: routes,
       );
 }
