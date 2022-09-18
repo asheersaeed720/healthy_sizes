@@ -117,7 +117,7 @@ class SignUpScreen extends StatelessWidget {
                           //     currentFocus.unfocus();
                           //   }
                           // }
-                          Get.toNamed(MainScreen.routeName);
+                          Get.offAllNamed(MainScreen.routeName);
                         },
                       ),
                       const SizedBox(height: 18.0),

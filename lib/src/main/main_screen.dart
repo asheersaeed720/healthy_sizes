@@ -22,18 +22,18 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final MainScreenController _mainScreenCtrl = Get.find();
 
-  // List<Widget> _widgetOptions = <Widget>[
-  //   MealPlanScreen(),
-  //   Text(
-  //     'Index 1: Explore',
-  //     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-  //   ),
-  //   Text(
-  //     'Index 2: Shop',
-  //     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-  //   ),
-  //   MenuScreen(),
-  // ];
+  final List<Widget> _widgetOptions = <Widget>[
+    const MealPlanScreen(),
+    const Text(
+      'Index 1: Explore',
+      style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+    ),
+    const Text(
+      'Index 2: Shop',
+      style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+    ),
+    MenuScreen(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -66,37 +66,11 @@ class _MainScreenState extends State<MainScreen> {
                                 color: Colors.grey.withOpacity(0.5),
                                 spreadRadius: 5,
                                 blurRadius: 7,
-                                offset: const Offset(0, 3), // changes position of shadow
+                                offset: const Offset(0, 3),
                               ),
                             ],
                           ),
-                          // child: _widgetOptions.elementAt(_mainScreenCtrl.selectedIndex),
-                          child: Builder(
-                            builder: (context) {
-                              if (_mainScreenCtrl.selectedIndex == 0) {
-                                return const MealPlanScreen();
-                              } else if (_mainScreenCtrl.selectedIndex == 1) {
-                                return const Center(
-                                  child: Text('Explore'),
-                                );
-                              } else if (_mainScreenCtrl.selectedIndex == 2) {
-                                return const Center(
-                                  child: Text('Shop'),
-                                );
-                              } else if (_mainScreenCtrl.selectedIndex == 4) {
-                                return const Center(
-                                  child: Text('Fitness Plan'),
-                                );
-                              } else if (_mainScreenCtrl.selectedIndex == 5) {
-                                return const Center(
-                                  child: Text('Diet Plan'),
-                                );
-                              }
-                              return const Center(
-                                child: Text('Meditation Plan'),
-                              );
-                            },
-                          ),
+                          child: _widgetOptions.elementAt(_mainScreenCtrl.selectedIndex),
                         ),
                       )
                     ],

@@ -2,8 +2,11 @@ import 'package:get/get.dart';
 import 'package:healthy_sizes/src/auth/views/forgot_password_screen.dart';
 import 'package:healthy_sizes/src/auth/views/login_screen.dart';
 import 'package:healthy_sizes/src/auth/views/signup_screen.dart';
+import 'package:healthy_sizes/src/diet/diet_plan_screen.dart';
+import 'package:healthy_sizes/src/fitness/fitness_plan_screen.dart';
 import 'package:healthy_sizes/src/init_screen.dart';
 import 'package:healthy_sizes/src/main/main_screen.dart';
+import 'package:healthy_sizes/src/meditation/meditation_plan_screen.dart';
 import 'package:healthy_sizes/src/welcome_screen.dart';
 
 final List<GetPage<dynamic>> routes = [
@@ -30,5 +33,17 @@ final List<GetPage<dynamic>> routes = [
   GetPage(
     name: MainScreen.routeName,
     page: () => MainScreen(),
+  ),
+  GetPage(
+    name: FitnessPlanScreen.routeName,
+    page: () => FitnessPlanScreen(),
+  ),
+  GetPage(
+    name: DietPlanScreen.routeName,
+    page: () => DietPlanScreen(),
+  ),
+  GetPage(
+    name: MeditationPlanScreen.routeName,
+    page: () => MeditationPlanScreen(),
   ),
 ];

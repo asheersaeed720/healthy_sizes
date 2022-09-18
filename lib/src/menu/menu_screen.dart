@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
+import 'package:healthy_sizes/src/auth/views/login_screen.dart';
+import 'package:healthy_sizes/src/diet/diet_plan_screen.dart';
+import 'package:healthy_sizes/src/fitness/fitness_plan_screen.dart';
 import 'package:healthy_sizes/src/main/main_screen_controller.dart';
-import 'package:healthy_sizes/src/welcome_screen.dart';
+import 'package:healthy_sizes/src/meditation/meditation_plan_screen.dart';
 import 'package:healthy_sizes/utils/constants.dart';
 
 class MenuScreen extends StatelessWidget {
@@ -43,7 +46,7 @@ class MenuScreen extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    // _mainScreenCtrl.onItemTapped(4);
+                    Get.toNamed(FitnessPlanScreen.routeName);
                   },
                   child: const Text('Fitness Plan'),
                 ),
@@ -61,12 +64,32 @@ class MenuScreen extends StatelessWidget {
                   thickness: 2.0,
                   height: 30.0,
                 ),
+                InkWell(
+                  onTap: () {
+                    Get.toNamed(DietPlanScreen.routeName);
+                  },
+                  child: const Text('Diet Plan'),
+                ),
+                const Divider(
+                  thickness: 2.0,
+                  height: 30.0,
+                ),
+                InkWell(
+                  onTap: () {
+                    Get.toNamed(MeditationPlanScreen.routeName);
+                  },
+                  child: const Text('Meditation Plan'),
+                ),
+                const Divider(
+                  thickness: 2.0,
+                  height: 30.0,
+                ),
                 const Text('Appointments'),
                 // const Divider(thickness: 2.0),
                 const Spacer(),
                 ListTile(
                   onTap: () {
-                    Get.toNamed(WelcomeAuthScreen.routeName);
+                    Get.offAllNamed(LogInScreen.routeName);
                   },
                   leading: const Icon(Icons.exit_to_app),
                   title: const Text('Logout'),
