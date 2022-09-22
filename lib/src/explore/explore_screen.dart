@@ -49,7 +49,7 @@ class ExploreScreen extends StatelessWidget {
         child: Stack(
           children: [
             const SizedBox(
-              height: 720,
+              height: 800,
               child: ScreenBgWidget(isHideHeading: true),
             ),
             Positioned(

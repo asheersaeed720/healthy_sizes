@@ -27,7 +27,7 @@ class PlanDetailScreen extends StatelessWidget {
               left: 20.0,
               right: 20.0,
               child: Container(
-                height: 740,
+                height: 760,
                 padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32.0),
                 decoration: BoxDecoration(
                   color: Colors.white,
