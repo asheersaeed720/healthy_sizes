@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:healthy_sizes/utils/constants.dart';
+import 'package:healthy_sizes/widgets/expandable_container.dart';
 import 'package:healthy_sizes/widgets/screen_bg_widget.dart';
 
 class FitnessPlanScreen extends StatefulWidget {
@@ -96,7 +97,6 @@ class _FitnessPlanScreenState extends State<FitnessPlanScreen> {
                               },
                               child: expandableListView(
                                 e,
-                                e,
                                 e == tapped ? expand : false,
                               ),
                             ),
@@ -181,37 +181,44 @@ class _FitnessPlanScreenState extends State<FitnessPlanScreen> {
     );
   }
 
-  Widget expandableListView(String index, String title, bool isExpanded) {
-    debugPrint('List item build $index $isExpanded');
+  Widget expandableListView(String title, bool isExpanded) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8.0),
       child: Column(
         children: <Widget>[
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
-            decoration: BoxDecoration(
-              color: kPrimaryColor,
-              borderRadius: BorderRadius.circular(kBorderRadius),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(
-                  title,
-                  style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-                ),
-                InkWell(
-                  onTap: () {
-                    // setState(() {
-                    //   isExpanded = !isExpanded;
-                    // });
-                  },
-                  child: const Icon(
+          InkWell(
+            onTap: () {
+              setState(() {
+                /// XOR operand returns when either or both conditions are true
+                /// `tapped == null` on initial app start, [tapped] is null
+                /// `index == tapped` initiate action only on tapped item
+                /// `!expand` should check previous expand action
+                expand = ((tapped == null) || ((title == tapped) || !expand)) ? !expand : expand;
+
+                /// This tracks which index was tapped
+                tapped = title;
+                debugPrint('current expand state: $expand');
+              });
+            },
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
+              decoration: BoxDecoration(
+                color: kPrimaryColor,
+                borderRadius: BorderRadius.circular(kBorderRadius),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    title,
+                    style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                  ),
+                  const Icon(
                     Icons.add,
                     color: Colors.white,
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           ExpandableContainer(
@@ -263,36 +270,6 @@ class _FitnessPlanScreenState extends State<FitnessPlanScreen> {
                 ],
               ))
         ],
-      ),
-    );
-  }
-}
-
-class ExpandableContainer extends StatelessWidget {
-  final bool expanded;
-  final double collapsedHeight;
-  final double expandedHeight;
-  final Widget child;
-
-  const ExpandableContainer({
-    super.key,
-    required this.child,
-    this.collapsedHeight = 0.0,
-    this.expandedHeight = 270.0,
-    this.expanded = true,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 500),
-      curve: Curves.easeInOut,
-      width: screenWidth,
-      height: expanded ? expandedHeight : collapsedHeight,
-      child: Container(
-        // decoration: BoxDecoration(border: Border.all(width: 1.0, color: Colors.blue)),
-        child: child,
       ),
     );
   }
