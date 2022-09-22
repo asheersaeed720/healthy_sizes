@@ -3,6 +3,7 @@ import 'package:healthy_sizes/src/auth/views/forgot_password_screen.dart';
 import 'package:healthy_sizes/src/auth/views/login_screen.dart';
 import 'package:healthy_sizes/src/auth/views/signup_screen.dart';
 import 'package:healthy_sizes/src/diet/diet_plan_screen.dart';
+import 'package:healthy_sizes/src/exercise/exercise_screen.dart';
 import 'package:healthy_sizes/src/fitness/fitness_plan_screen.dart';
 import 'package:healthy_sizes/src/init_screen.dart';
 import 'package:healthy_sizes/src/main/main_screen.dart';
@@ -50,5 +51,9 @@ final List<GetPage<dynamic>> routes = [
   GetPage(
     name: PlanDetailScreen.routeName,
     page: () => PlanDetailScreen(),
+  ),
+  GetPage(
+    name: ExerciseScreen.routeName,
+    page: () => ExerciseScreen(),
   ),
 ];
