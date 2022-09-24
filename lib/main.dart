@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:healthy_sizes/src/appointment/appointment_detail_screen.dart';
 import 'package:healthy_sizes/src/initial_binding.dart';
+import 'package:healthy_sizes/src/payment/payment_screen.dart';
 import 'package:healthy_sizes/utils/app_theme.dart';
 import 'package:healthy_sizes/utils/routes.dart';
 
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         theme: lightThemeData,
         initialBinding: InitialBinding(),
         // initialRoute: InitialScreen.routeName,
-        home: const AppointmentDetailScreen(),
+        home: PaymentScreen(),
         getPages: routes,
       );
 }

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:healthy_sizes/utils/constants.dart';
 import 'package:healthy_sizes/widgets/arrow_widget.dart';
+import 'package:healthy_sizes/widgets/custom_async_btn.dart';
 import 'package:healthy_sizes/widgets/screen_bg_widget.dart';
 
 class AppointmentDetailScreen extends StatefulWidget {
@@ -17,7 +18,7 @@ class AppointmentDetailScreen extends StatefulWidget {
 }
 
 class _AppointmentDetailScreenState extends State<AppointmentDetailScreen> {
-  int _index = 1;
+  int _index = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -150,8 +151,8 @@ class _AppointmentDetailScreenState extends State<AppointmentDetailScreen> {
         Card(
           elevation: 2.0,
           margin: const EdgeInsets.only(top: 10.0),
-          child: ListTile(
-            contentPadding: EdgeInsets.zero,
+          child: ExpansionTile(
+            tilePadding: EdgeInsets.zero,
             leading: ClipRRect(
               borderRadius: BorderRadius.circular(50.0),
               child: Image.asset(
@@ -170,13 +171,19 @@ class _AppointmentDetailScreenState extends State<AppointmentDetailScreen> {
                 fontWeight: FontWeight.w500,
               ),
             ),
+            children: [
+              CustomAsyncBtn(
+                btnTxt: 'Book Now',
+                onPress: () {},
+              )
+            ],
           ),
         ),
         Card(
           elevation: 2.0,
           margin: const EdgeInsets.only(top: 10.0),
-          child: ListTile(
-            contentPadding: EdgeInsets.zero,
+          child: ExpansionTile(
+            tilePadding: EdgeInsets.zero,
             leading: ClipRRect(
               borderRadius: BorderRadius.circular(50.0),
               child: Image.asset(
@@ -195,6 +202,12 @@ class _AppointmentDetailScreenState extends State<AppointmentDetailScreen> {
                 fontWeight: FontWeight.w500,
               ),
             ),
+            children: [
+              CustomAsyncBtn(
+                btnTxt: 'Book Now',
+                onPress: () {},
+              )
+            ],
           ),
         ),
       ],

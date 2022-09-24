@@ -10,6 +10,7 @@ import 'package:healthy_sizes/src/fitness/fitness_plan_screen.dart';
 import 'package:healthy_sizes/src/init_screen.dart';
 import 'package:healthy_sizes/src/main/main_screen.dart';
 import 'package:healthy_sizes/src/meditation/meditation_plan_screen.dart';
+import 'package:healthy_sizes/src/payment/payment_screen.dart';
 import 'package:healthy_sizes/src/plan_detail/plan_detail_screen.dart';
 import 'package:healthy_sizes/src/step_count/step_count_screen.dart';
 import 'package:healthy_sizes/src/welcome_screen.dart';
@@ -70,5 +71,9 @@ final List<GetPage<dynamic>> routes = [
   GetPage(
     name: AppointmentDetailScreen.routeName,
     page: () => AppointmentDetailScreen(),
+  ),
+  GetPage(
+    name: PaymentScreen.routeName,
+    page: () => PaymentScreen(),
   ),
 ];
