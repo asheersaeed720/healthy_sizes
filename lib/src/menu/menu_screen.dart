@@ -9,7 +9,9 @@ import 'package:healthy_sizes/src/diet/diet_plan_screen.dart';
 import 'package:healthy_sizes/src/exercise/exercise_screen.dart';
 import 'package:healthy_sizes/src/fitness/fitness_plan_screen.dart';
 import 'package:healthy_sizes/src/main/main_screen_controller.dart';
+import 'package:healthy_sizes/src/meal/meal_plan_screen.dart';
 import 'package:healthy_sizes/src/meditation/meditation_plan_screen.dart';
+import 'package:healthy_sizes/src/step_count/step_count_screen.dart';
 import 'package:healthy_sizes/utils/constants.dart';
 
 class MenuScreen extends StatelessWidget {
@@ -68,20 +70,32 @@ class MenuScreen extends StatelessWidget {
                 children: [
                   Text('Menu', style: kTitleStyle),
                   const SizedBox(height: 30.0),
-                  const Text('Home'),
+                  InkWell(
+                    onTap: () {
+                      Get.toNamed(MealPlanScreen.routeName);
+                    },
+                    child: const Text('Home'),
+                  ),
                   const Divider(
                     thickness: 2.0,
-                    height: 30.0,
+                    height: 40.0,
                   ),
                   InkWell(
                     onTap: () {
-                      Get.toNamed(ExerciseScreen.routeName);
+                      Get.toNamed(DietPlanScreen.routeName);
                     },
-                    child: const Text('Exercise'),
+                    child: Container(
+                      color: kPrimaryColor,
+                      padding: const EdgeInsets.all(10.0),
+                      child: const Text(
+                        'Purchase diet and fitness plan',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
                   ),
                   const Divider(
                     thickness: 2.0,
-                    height: 30.0,
+                    height: 40.0,
                   ),
                   InkWell(
                     onTap: () {
@@ -91,7 +105,7 @@ class MenuScreen extends StatelessWidget {
                   ),
                   const Divider(
                     thickness: 2.0,
-                    height: 30.0,
+                    height: 40.0,
                   ),
                   InkWell(
                     onTap: () {
@@ -101,17 +115,27 @@ class MenuScreen extends StatelessWidget {
                   ),
                   const Divider(
                     thickness: 2.0,
-                    height: 30.0,
+                    height: 40.0,
                   ),
                   InkWell(
                     onTap: () {
-                      Get.toNamed(DietPlanScreen.routeName);
+                      Get.toNamed(AppointmentScreen.routeName);
                     },
-                    child: const Text('Diet Plan'),
+                    child: const Text('Appointments'),
                   ),
                   const Divider(
                     thickness: 2.0,
-                    height: 30.0,
+                    height: 40.0,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      _mainScreenCtrl.onItemTapped(1);
+                    },
+                    child: const Text('Nutrition and Fitness Exercise'),
+                  ),
+                  const Divider(
+                    thickness: 2.0,
+                    height: 40.0,
                   ),
                   InkWell(
                     onTap: () {
@@ -121,13 +145,23 @@ class MenuScreen extends StatelessWidget {
                   ),
                   const Divider(
                     thickness: 2.0,
-                    height: 30.0,
+                    height: 40.0,
                   ),
                   InkWell(
                     onTap: () {
-                      Get.toNamed(AppointmentScreen.routeName);
+                      Get.toNamed(StepCountScreen.routeName);
                     },
-                    child: const Text('Appointments'),
+                    child: const Text('Calories and Step Counting'),
+                  ),
+                  const Divider(
+                    thickness: 2.0,
+                    height: 40.0,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Get.toNamed(ExerciseScreen.routeName);
+                    },
+                    child: const Text('Exercise to Relieve Stress'),
                   ),
                   const Spacer(),
                   ListTile(

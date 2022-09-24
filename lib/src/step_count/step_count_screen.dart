@@ -16,7 +16,7 @@ class StepCountScreen extends StatelessWidget {
         child: Stack(
           children: [
             const SizedBox(
-              height: 700,
+              height: 750,
               child: ScreenBgWidget(isHideHeading: true),
             ),
             Positioned(
@@ -24,7 +24,7 @@ class StepCountScreen extends StatelessWidget {
               left: 20.0,
               right: 20.0,
               child: Container(
-                height: 600,
+                height: 650,
                 padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32.0),
                 decoration: BoxDecoration(
                   color: Colors.white,

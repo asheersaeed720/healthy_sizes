@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:healthy_sizes/src/explore/explore_screen.dart';
 import 'package:healthy_sizes/src/main/main_screen_controller.dart';
 import 'package:healthy_sizes/src/meal/meal_plan_screen.dart';
+import 'package:healthy_sizes/src/plan_detail/plan_detail_screen.dart';
 import 'package:healthy_sizes/utils/constants.dart';
 import 'package:healthy_sizes/widgets/screen_bg_widget.dart';
 
@@ -26,10 +27,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _widgetOptions = <Widget>[
     const MealPlanScreen(),
     ExploreScreen(),
-    const Text(
-      'Index 2:',
-      style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-    ),
+    PlanDetailScreen(),
     MenuScreen(),
   ];
 
@@ -41,6 +39,8 @@ class _MainScreenState extends State<MainScreen> {
       builder: (_) {
         if (_mainScreenCtrl.selectedIndex == 1) {
           return ExploreScreen();
+        } else if (_mainScreenCtrl.selectedIndex == 2) {
+          return PlanDetailScreen(isBottomBar: true);
         } else if (_mainScreenCtrl.selectedIndex == 3) {
           return MenuScreen();
         }

@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:healthy_sizes/src/payment/payment_screen.dart';
 import 'package:healthy_sizes/utils/constants.dart';
 import 'package:healthy_sizes/widgets/arrow_widget.dart';
 import 'package:healthy_sizes/widgets/custom_async_btn.dart';
@@ -174,7 +175,9 @@ class _AppointmentDetailScreenState extends State<AppointmentDetailScreen> {
             children: [
               CustomAsyncBtn(
                 btnTxt: 'Book Now',
-                onPress: () {},
+                onPress: () {
+                  Get.toNamed(PaymentScreen.routeName);
+                },
               )
             ],
           ),
@@ -205,7 +208,9 @@ class _AppointmentDetailScreenState extends State<AppointmentDetailScreen> {
             children: [
               CustomAsyncBtn(
                 btnTxt: 'Book Now',
-                onPress: () {},
+                onPress: () {
+                  Get.toNamed(PaymentScreen.routeName);
+                },
               )
             ],
           ),

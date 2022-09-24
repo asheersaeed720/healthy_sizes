@@ -240,12 +240,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   titleStyle: kBodyStyle.copyWith(color: Colors.white),
                   middleTextStyle: const TextStyle(color: Colors.white),
                   buttonColor: Colors.transparent,
-                  // cancel: Text(
-                  //   'Done',
-                  //   style: kBodyStyle.copyWith(
-                  //     color: Colors.white,
-                  //   ),
-                  // ),
                   textCancel: 'Done',
                   cancelTextColor: Colors.white,
                   onCancel: () {

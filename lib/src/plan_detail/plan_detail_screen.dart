@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:healthy_sizes/src/main/main_screen_controller.dart';
 import 'package:healthy_sizes/utils/constants.dart';
 import 'package:healthy_sizes/widgets/custom_async_btn.dart';
 import 'package:healthy_sizes/widgets/screen_bg_widget.dart';
@@ -7,7 +8,11 @@ import 'package:healthy_sizes/widgets/screen_bg_widget.dart';
 class PlanDetailScreen extends StatelessWidget {
   static const String routeName = '/plan-detail';
 
-  PlanDetailScreen({Key? key}) : super(key: key);
+  PlanDetailScreen({this.isBottomBar = false, Key? key}) : super(key: key);
+
+  final bool isBottomBar;
+
+  final _mainScreenCtrl = Get.put(MainScreenController());
 
   final Map<String, dynamic>? args =
       Get.arguments == null ? null : Get.arguments as Map<String, dynamic>;
@@ -15,6 +20,34 @@ class PlanDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: !isBottomBar
+          ? null
+          : BottomNavigationBar(
+              items: <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Image.asset('assets/icons/plan.png'),
+                  label: '',
+                ),
+                BottomNavigationBarItem(
+                  icon: Image.asset('assets/icons/explore.png'),
+                  label: '',
+                ),
+                BottomNavigationBarItem(
+                  icon: Image.asset('assets/icons/shop.png'),
+                  label: '',
+                ),
+                BottomNavigationBarItem(
+                  icon: Image.asset('assets/icons/menu.png'),
+                  label: '',
+                ),
+              ],
+              currentIndex: _mainScreenCtrl.selectedIndex,
+              selectedItemColor: kPrimaryColor,
+              unselectedItemColor: Colors.grey.shade700,
+              selectedIconTheme: const IconThemeData(color: kPrimaryColor),
+              unselectedIconTheme: IconThemeData(color: Colors.grey.shade700),
+              onTap: _mainScreenCtrl.onItemTapped,
+            ),
       body: SingleChildScrollView(
         child: Stack(
           children: [

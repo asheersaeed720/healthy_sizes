@@ -36,7 +36,7 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
         child: Stack(
           children: [
             const SizedBox(
-              height: 700,
+              height: 750,
               child: ScreenBgWidget(isHideHeading: true),
             ),
             Positioned(
