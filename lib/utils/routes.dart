@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:healthy_sizes/src/appointment/appointment_detail_screen.dart';
 import 'package:healthy_sizes/src/appointment/appointment_screen.dart';
 import 'package:healthy_sizes/src/auth/views/forgot_password_screen.dart';
 import 'package:healthy_sizes/src/auth/views/login_screen.dart';
@@ -65,5 +66,9 @@ final List<GetPage<dynamic>> routes = [
   GetPage(
     name: AppointmentScreen.routeName,
     page: () => AppointmentScreen(),
+  ),
+  GetPage(
+    name: AppointmentDetailScreen.routeName,
+    page: () => AppointmentDetailScreen(),
   ),
 ];

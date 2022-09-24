@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
+import 'package:healthy_sizes/src/appointment/appointment_detail_screen.dart';
 import 'package:healthy_sizes/utils/constants.dart';
 import 'package:healthy_sizes/widgets/arrow_widget.dart';
 import 'package:healthy_sizes/widgets/custom_async_btn.dart';
@@ -72,7 +71,9 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                     const SizedBox(height: 20.0),
                     CustomAsyncBtn(
                       btnTxt: 'Book Now',
-                      onPress: () {},
+                      onPress: () {
+                        Get.toNamed(AppointmentDetailScreen.routeName);
+                      },
                     ),
                   ],
                 ),
