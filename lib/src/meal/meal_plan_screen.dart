@@ -176,77 +176,78 @@ class _MealPlanScreenState extends State<MealPlanScreen> {
             ),
           ),
           ExpandableContainer(
-              expanded: isExpanded,
-              child: ListView(
-                physics: const NeverScrollableScrollPhysics(),
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade100,
-                      borderRadius: BorderRadius.circular(kBorderRadius),
-                    ),
-                    child: ListTile(
-                      onTap: () {
-                        Get.toNamed(
-                          PlanDetailScreen.routeName,
-                          arguments: {
-                            'title': 'Breakfast',
-                          },
-                        );
-                      },
-                      leading: ClipRRect(
-                        child: Image.asset('assets/images/breakfast.png'),
-                      ),
-                      title: const Text('Break Fast'),
-                      subtitle: const Text('Tropical Green Smoothie'),
-                    ),
+            expanded: isExpanded,
+            child: ListView(
+              physics: const NeverScrollableScrollPhysics(),
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade100,
+                    borderRadius: BorderRadius.circular(kBorderRadius),
                   ),
-                  const SizedBox(height: 12.0),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade100,
-                      borderRadius: BorderRadius.circular(kBorderRadius),
+                  child: ListTile(
+                    onTap: () {
+                      Get.toNamed(
+                        PlanDetailScreen.routeName,
+                        arguments: {
+                          'title': 'Breakfast',
+                        },
+                      );
+                    },
+                    leading: ClipRRect(
+                      child: Image.asset('assets/images/breakfast.png'),
                     ),
-                    child: ListTile(
-                      onTap: () {
-                        Get.toNamed(
-                          PlanDetailScreen.routeName,
-                          arguments: {
-                            'title': 'Lunch',
-                          },
-                        );
-                      },
-                      leading: ClipRRect(
-                        child: Image.asset('assets/images/lunch.png'),
-                      ),
-                      title: const Text('Lunch'),
-                      subtitle: const Text('Tropical Chicken Breast'),
-                    ),
+                    title: const Text('Break Fast'),
+                    subtitle: const Text('Tropical Green Smoothie'),
                   ),
-                  const SizedBox(height: 12.0),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade100,
-                      borderRadius: BorderRadius.circular(kBorderRadius),
-                    ),
-                    child: ListTile(
-                      onTap: () {
-                        Get.toNamed(
-                          PlanDetailScreen.routeName,
-                          arguments: {
-                            'title': 'Dinner',
-                          },
-                        );
-                      },
-                      leading: ClipRRect(
-                        child: Image.asset('assets/images/dinner.png'),
-                      ),
-                      title: const Text('Dinner'),
-                      subtitle: const Text('Liberato Chicken Breast'),
-                    ),
+                ),
+                const SizedBox(height: 12.0),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade100,
+                    borderRadius: BorderRadius.circular(kBorderRadius),
                   ),
-                ],
-              ))
+                  child: ListTile(
+                    onTap: () {
+                      Get.toNamed(
+                        PlanDetailScreen.routeName,
+                        arguments: {
+                          'title': 'Lunch',
+                        },
+                      );
+                    },
+                    leading: ClipRRect(
+                      child: Image.asset('assets/images/lunch.png'),
+                    ),
+                    title: const Text('Lunch'),
+                    subtitle: const Text('Tropical Chicken Breast'),
+                  ),
+                ),
+                const SizedBox(height: 12.0),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade100,
+                    borderRadius: BorderRadius.circular(kBorderRadius),
+                  ),
+                  child: ListTile(
+                    onTap: () {
+                      Get.toNamed(
+                        PlanDetailScreen.routeName,
+                        arguments: {
+                          'title': 'Dinner',
+                        },
+                      );
+                    },
+                    leading: ClipRRect(
+                      child: Image.asset('assets/images/dinner.png'),
+                    ),
+                    title: const Text('Dinner'),
+                    subtitle: const Text('Liberato Chicken Breast'),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

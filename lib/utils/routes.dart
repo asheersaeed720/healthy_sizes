@@ -9,6 +9,7 @@ import 'package:healthy_sizes/src/init_screen.dart';
 import 'package:healthy_sizes/src/main/main_screen.dart';
 import 'package:healthy_sizes/src/meditation/meditation_plan_screen.dart';
 import 'package:healthy_sizes/src/plan_detail/plan_detail_screen.dart';
+import 'package:healthy_sizes/src/step_count/step_count_screen.dart';
 import 'package:healthy_sizes/src/welcome_screen.dart';
 
 final List<GetPage<dynamic>> routes = [
@@ -55,5 +56,9 @@ final List<GetPage<dynamic>> routes = [
   GetPage(
     name: ExerciseScreen.routeName,
     page: () => ExerciseScreen(),
+  ),
+  GetPage(
+    name: StepCountScreen.routeName,
+    page: () => StepCountScreen(),
   ),
 ];

@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:healthy_sizes/src/main/main_screen_controller.dart';
+import 'package:healthy_sizes/src/step_count/step_count_screen.dart';
 import 'package:healthy_sizes/utils/constants.dart';
 import 'package:healthy_sizes/widgets/custom_async_btn.dart';
 import 'package:healthy_sizes/widgets/screen_bg_widget.dart';
@@ -109,6 +110,9 @@ class ExploreScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           ListTile(
+                            onTap: () {
+                              Get.toNamed(StepCountScreen.routeName);
+                            },
                             title: Text(
                               'Coffe with milk',
                               style: kBodyStyle.copyWith(color: kPrimaryColor),

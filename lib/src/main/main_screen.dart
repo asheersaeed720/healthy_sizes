@@ -73,7 +73,7 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                     child: _widgetOptions.elementAt(_mainScreenCtrl.selectedIndex),
                   ),
-                )
+                ),
               ],
             ),
           ),
