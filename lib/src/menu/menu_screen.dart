@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
+import 'package:healthy_sizes/src/appointment/appointment_screen.dart';
 import 'package:healthy_sizes/src/auth/views/login_screen.dart';
 import 'package:healthy_sizes/src/diet/diet_plan_screen.dart';
 import 'package:healthy_sizes/src/exercise/exercise_screen.dart';
@@ -78,7 +79,6 @@ class MenuScreen extends StatelessWidget {
                     },
                     child: const Text('Exercise'),
                   ),
-
                   const Divider(
                     thickness: 2.0,
                     height: 30.0,
@@ -89,7 +89,6 @@ class MenuScreen extends StatelessWidget {
                     },
                     child: const Text('Fitness Plan'),
                   ),
-
                   const Divider(
                     thickness: 2.0,
                     height: 30.0,
@@ -124,8 +123,12 @@ class MenuScreen extends StatelessWidget {
                     thickness: 2.0,
                     height: 30.0,
                   ),
-                  const Text('Appointments'),
-                  // const Divider(thickness: 2.0),
+                  InkWell(
+                    onTap: () {
+                      Get.toNamed(AppointmentScreen.routeName);
+                    },
+                    child: const Text('Appointments'),
+                  ),
                   const Spacer(),
                   ListTile(
                     onTap: () {
